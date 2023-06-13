@@ -1,0 +1,36 @@
+.profile__subtitle {
+   margin: 0;
+   padding: 0;
+   max-width: 336px;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 22px;
+   color: #fff;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+}
+
+   @media screen and (max-width: 768px) {
+      .profile__subtitle {
+      max-width: 282px;
+      font-size: 16px;
+      line-height: 19px;
+      /* text-align: center; */
+      }
+   }
+
+   /* @media screen and (max-width: 680px) {
+      .profile__subtitle {
+        text-align: center;
+      }
+    } */
+   
+   @media screen and (max-width: 400px) {
+      .profile__subtitle {
+      font-size: 14px;
+      line-height: 17px;
+      padding-top: 5px;
+      text-align: center;
+      }
+   }

@@ -1,0 +1,10 @@
+.element__count-like {
+   color: #000;
+   font-family: Inter;
+   font-size: 13px;
+   font-weight: 400;
+   line-height: 16px;
+   margin: 3px 0 0;
+   max-width: 10px;
+   text-align: center;
+}
