@@ -6,7 +6,7 @@
 
 /* allowedCors - массив, содержащий список разрешенных источников запросов.
  Если источник запроса находится в этом списке, то будет разрешен доступ к ресурсам. */
- const allowedCors = [
+const allowedCors = [
   'https://gorgulenko.nomoredomains.rocks',
   'http://gorgulenko.nomoredomains.rocks',
   'https://localhost:3000',
