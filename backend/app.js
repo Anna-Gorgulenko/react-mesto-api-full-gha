@@ -1,4 +1,4 @@
-//подключаем dotenv config(), чтобы секретный
+// подключаем dotenv config(), чтобы секретный
 // ключ из файла .env работал
 require('dotenv').config();
 const express = require('express');
