@@ -134,7 +134,11 @@ function editProfileUserInfo(req, res, next) {
     })
 
     .catch((err) => {
-      next(err);
+      if (err.name === 'ValidationError') {
+        next(new InvalidDataError('Передача некорректных данные при редактировании пользователя'));
+      } else {
+        next(err);
+      }
     });
 }
 
@@ -160,7 +164,11 @@ function changeUserAvatar(req, res, next) {
       throw new NotFoundError('Пользователь c указанным id не найден');
     })
     .catch((err) => {
-      next(err);
+      if (err.name === 'ValidationError') {
+        next(new InvalidDataError('Передача некорректных данные при редактировании аватара'));
+      } else {
+        next(err);
+      }
     });
 }
 

@@ -1,3 +1,6 @@
+//подключаем dotenv config(), чтобы секретный
+// ключ из файла .env работал
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');

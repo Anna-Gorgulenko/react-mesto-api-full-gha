@@ -68,51 +68,6 @@ function App() {
         .catch((error) => console.log(`Ошибка: ${error}`))
   }, [isLoggedIn])
 
-  /*useEffect(() => {
-    setIsLoading(true)
-    api
-      .getUserInfo()
-      .then((profileInfo) => setCurrentUser(profileInfo))
-      .catch((error) => console.log(`Ошибка: ${error}`))
-
-    api
-      .getInitialCards()
-      .then((data) => {
-        setCards(
-          data.map((card) => ({
-            _id: card._id,
-            name: card.name,
-            link: card.link,
-            likes: card.likes,
-            owner: card.owner,
-          }))
-        )
-      })
-      .catch((error) => console.log(`Ошибка: ${error}`))
-      .finally(() => setIsLoading(false))
-  }, [])
-
-
-  useEffect(() => {
-    const jwt = localStorage.getItem("jwt")
-
-    if (jwt) {
-      auth
-        .checkToken(jwt)
-        .then((res) => {
-          setIsLoggedIn(true)
-          setEmail(res.data.email)
-          history.push("/")
-        })
-        .catch((err) => {
-          if (err.status === 401) {
-            console.log("401 — Токен не передан или передан не в том формате")
-          }
-          console.log("401 — Переданный токен некорректен")
-        })
-    }
-  }, [history])*/
-
   {
     /* ФУНКЦИЯ ЗАКРЫТИЯ ПОПАПОВ*/
   }
@@ -208,18 +163,18 @@ function App() {
   function handleCardLike(card) {
     const isLiked = card.likes.some((user) => user === currentUser._id)
 
-    ;(isLiked
-      ? api.deleteLikeFromCard(card._id)
-      : api.addLikeToCard(card._id, true)
-    )
-      .then((newCard) => {
-        setCards((state) =>
-          state.map((item) =>
-          item._id === newCard.data._id ? newCard.data : item
+      ; (isLiked
+        ? api.deleteLikeFromCard(card._id)
+        : api.addLikeToCard(card._id, true)
+      )
+        .then((newCard) => {
+          setCards((state) =>
+            state.map((item) =>
+              item._id === newCard.data._id ? newCard.data : item
+            )
           )
-        )
-      })
-      .catch((err) => console.log(err))
+        })
+        .catch((err) => console.log(err))
   }
 
   {
@@ -270,8 +225,11 @@ function App() {
         } else if (err.status === 401) {
           console.log("401 - пользователь с email не найден")
         }
+        setInfoToolTipPopupOpen(true)
+        setIsSuccess(false)
       })
   }
+
 
   function handleSignOut() {
     localStorage.removeItem("jwt")

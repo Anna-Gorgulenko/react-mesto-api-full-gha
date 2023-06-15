@@ -9,7 +9,6 @@ const InvalidDataError = require('../errors/InvalidDataError');
 function getInitialCards(_, res, next) {
   Card
     .find({})
-    .populate(['owner', 'likes'])
     .then((cards) => res.send({ data: cards }))
     .catch(next);
 }
